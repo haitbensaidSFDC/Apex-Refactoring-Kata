@@ -78,7 +78,7 @@ trigger AccountTrigger on Account (before insert, before update) {
         try {
             if (Trigger.isInsert || Trigger.isUpdate) {
                 for (Account account : accounts) {
-                    if (account.Ownership.equals('Public') && account.SLA__c?.equals('Bronze')) {
+                    if (account.Ownership.equals('Public') && account.SLA__c.equals('Bronze')) {
                         throw new UnsupportedOperationException('Public accounts need to have an SLA value of either Platinum or High ');
                     }
 
